@@ -300,16 +300,19 @@
 
   /* ═══════ MOBILE : tableau → cartes ═══════ */
   @media (max-width: 720px) {
-    header { padding: calc(0.6rem + env(safe-area-inset-top)) 0.9rem 0.6rem; gap: 0.5rem; }
-    header h1 { font-size: 1rem; }
-    .header-stats { font-size: 0.72rem; }
+    html, body { overflow-x: hidden; max-width: 100%; }
 
-    .toolbar { position: static; padding: 0.6rem 0.7rem; gap: 0.45rem; }
-    .toolbar input[type=text] { width: 100%; font-size: 16px; padding: 0.6rem 0.75rem; }
-    .filter-btn, .show-modified-btn, .show-verified-btn { font-size: 0.8rem; padding: 0.45rem 0.75rem; }
+    /* En-tête compact */
+    header { padding: calc(0.35rem + env(safe-area-inset-top)) 0.75rem 0.35rem; gap: 0.35rem; }
+    header h1 { font-size: 0.82rem; }
+    .header-stats { font-size: 0.62rem; }
+
+    .toolbar { position: static; padding: 0.5rem 0.6rem; gap: 0.4rem; }
+    .toolbar input[type=text] { width: 100%; font-size: 16px; padding: 0.55rem 0.7rem; }
+    .filter-btn, .show-modified-btn, .show-verified-btn { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
     .show-modified-btn { margin-left: 0; }
-    .count-label { width: 100%; order: 10; }
-    .export-btn, .share-btn { flex: 1 1 45%; font-size: 0.85rem; padding: 0.65rem 0.5rem; text-align: center; }
+    .count-label { width: 100%; order: 10; font-size: 0.72rem; }
+    .export-btn, .share-btn { flex: 1 1 45%; font-size: 0.78rem; padding: 0.55rem 0.4rem; text-align: center; }
 
     /* Chaque ligne devient une carte */
     table, tbody, tr, td { display: block; width: auto; }
