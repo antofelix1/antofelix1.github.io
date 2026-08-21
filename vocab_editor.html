@@ -297,6 +297,68 @@
     transition: all 0.15s;
   }
   .show-verified-btn.active { background: #e4f5e9; }
+
+  /* ═══════ MOBILE : tableau → cartes ═══════ */
+  @media (max-width: 720px) {
+    header { padding: calc(0.6rem + env(safe-area-inset-top)) 0.9rem 0.6rem; gap: 0.5rem; }
+    header h1 { font-size: 1rem; }
+    .header-stats { font-size: 0.72rem; }
+
+    .toolbar { position: static; padding: 0.6rem 0.7rem; gap: 0.45rem; }
+    .toolbar input[type=text] { width: 100%; font-size: 16px; padding: 0.6rem 0.75rem; }
+    .filter-btn, .show-modified-btn, .show-verified-btn { font-size: 0.8rem; padding: 0.45rem 0.75rem; }
+    .show-modified-btn { margin-left: 0; }
+    .count-label { width: 100%; order: 10; }
+    .export-btn, .share-btn { flex: 1 1 45%; font-size: 0.85rem; padding: 0.65rem 0.5rem; text-align: center; }
+
+    /* Chaque ligne devient une carte */
+    table, tbody, tr, td { display: block; width: auto; }
+    .td-fr, .td-co, .td-cis, .td-cat, .td-actions, .td-id, .td-check { width: auto; }
+    thead { display: none; }
+    table { background: transparent; font-size: 1rem; }
+    tbody tr {
+      background: white; border: 1px solid #e2e2e2; border-radius: 12px;
+      margin: 0.7rem; padding: 1.6rem 0.9rem 0.7rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.06); position: relative;
+    }
+    tbody tr.modified { border-left: 4px solid #6c63ff; background: #fffdf5; }
+    tbody tr.verified { background: #f5fbf7; }
+    tbody tr:hover, tbody tr.modified:hover, tbody tr.verified:hover { background: inherit !important; }
+    td { padding: 0.3rem 0; vertical-align: top; }
+
+    /* Libellés au-dessus de chaque champ */
+    .td-fr::before, .td-co::before, .td-cis::before, .td-cat::before {
+      display: block; font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.04em; color: #999; margin-bottom: 0.28rem;
+    }
+    .td-fr::before  { content: 'Français'; }
+    .td-co::before  { content: 'Pumunticu · sud'; color: #b06a00; }
+    .td-cis::before { content: 'Cismunticu · nord'; color: #2e8b57; }
+    .td-cat::before { content: 'Catégorie'; }
+
+    /* Champs : grands, tactiles, 16px (pas de zoom iOS) */
+    .co-edit, .cat-select {
+      width: 100%; border: 1px solid #cfcfcf; background: white; font-size: 16px;
+      padding: 0.6rem 0.7rem; border-radius: 8px;
+    }
+    .td-cis .co-edit { background: #f3faf5; }
+    .modified .co-edit, .modified .cat-select { font-weight: 600; }
+    .modified-dot { display: none; }
+
+    /* ID en petit en haut à gauche */
+    .td-id { position: absolute; top: 0.5rem; left: 0.9rem; font-size: 0.7rem; color: #999; padding: 0; width: auto; }
+    .user-badge { display: inline-block; margin: 0 0 0 0.35rem; }
+
+    /* Case « vérifié » en haut à droite */
+    .td-check { position: absolute; top: 0.4rem; right: 0.7rem; width: auto; display: flex; align-items: center; gap: 0.3rem; padding: 0; }
+    .td-check::after { content: 'vérifié'; font-size: 0.66rem; color: #999; }
+    .verify-cb { width: 20px; height: 20px; }
+
+    /* Actions : boutons plus gros, alignés à droite */
+    .td-actions { width: auto; text-align: right; padding-top: 0.4rem; white-space: nowrap; }
+    .reset-btn, .delete-btn { font-size: 1.4rem; padding: 0.35rem 0.55rem; }
+    .modified .reset-btn { display: inline-block; }
+  }
 </style>
 </head>
 <body>
