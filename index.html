@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Vucabulariu">
+<meta name="theme-color" content="#efece3">
+<title>Vucabulariu</title>
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-photo"></div>
+
+<div class="app">
+
+<header class="topbar">
+  <h1 class="app-title">Vucabulariu</h1>
+</header>
+
+<div class="glass-panel">
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num stat-remaining" id="statRemaining">0</div>
+      <div class="stat-label">À RÉVISER</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num stat-seen" id="statSeen">0</div>
+      <div class="stat-label">VU<br>AUJOURD'HUI</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num stat-mastered" id="statMastered">0</div>
+      <div class="stat-label">MAÎTRISÉS</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num stat-total" id="statTotal">0</div>
+      <div class="stat-label">TOTAL<br>ACTIFS</div>
+    </div>
+  </div>
+
+  <div class="variante-row">
+    <span class="variante-caption">Variante :</span>
+    <div class="segmented" id="varianteSeg">
+      <button class="seg-btn seg-active" data-variante="sud">Pumunticu <span class="seg-sub">SUD</span></button>
+      <button class="seg-btn" data-variante="nord">Cismunticu <span class="seg-sub">NORD</span></button>
+    </div>
+    <button class="icon-btn reset-btn" id="resetBtn" title="Remettre les mots maîtrisés dans la liste">↺</button>
+  </div>
+
+  <div class="filters-row" id="filtersRow">
+    <!-- category pills injected by JS -->
+  </div>
+</div>
+
+<main class="card-area">
+  <div class="card-wrap" id="cardWrap">
+    <div class="card" id="card">
+      <div class="card-inner" id="cardInner">
+        <div class="card-face card-front">
+          <div class="card-top">
+            <span class="badge" id="badgeFront">MOT</span>
+          </div>
+          <div class="card-content">
+            <div class="lang-label">FRANÇAIS</div>
+            <div class="word-text" id="frText">—</div>
+          </div>
+          <div class="hint">Touchez pour retourner</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-top">
+            <span class="badge" id="badgeBack">MOT</span>
+          </div>
+          <div class="card-content">
+            <div class="lang-label" id="varianteLabel">CORSU</div>
+            <div class="word-text" id="corsText">—</div>
+          </div>
+          <div class="hint">Touchez pour retourner</div>
+        </div>
+      </div>
+      <div class="swipe-tag swipe-tag-left">✕</div>
+      <div class="swipe-tag swipe-tag-right">✓</div>
+    </div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <div class="empty-emoji">🎉</div>
+      <div class="empty-title">Bravu !</div>
+      <p class="empty-text">Vous maîtrisez tous les mots de cette catégorie.</p>
+      <button class="btn-primary" id="emptyResetBtn">Remettre les mots maîtrisés dans la liste</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn ctrl-left" id="btnDontKnow">
+      <span class="ctrl-arrow">←</span>
+      <span>Je ne maîtrise pas</span>
+    </button>
+    <button class="ctrl-btn ctrl-right" id="btnKnow">
+      <span>Je maîtrise</span>
+      <span class="ctrl-arrow">→</span>
+    </button>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+</div>
+
+<script src="words.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
