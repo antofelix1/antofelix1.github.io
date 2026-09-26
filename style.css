@@ -63,12 +63,12 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding: calc(var(--safe-top) + 16px) 14px 10px;
+  padding: calc(var(--safe-top) + 10px) 14px 6px;
   flex-shrink:0;
 }
 
 .app-title{
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 800;
   letter-spacing: .01em;
   margin:0;
@@ -102,7 +102,7 @@ body{
   border-bottom: 1px solid rgba(255,255,255,.5);
   border-radius: 0 0 26px 26px;
   box-shadow: 0 8px 24px rgba(28,28,20,.06);
-  padding-bottom: 14px;
+  padding-bottom: 8px;
 }
 
 /* ---------- Stats bar ---------- */
@@ -111,7 +111,7 @@ body{
   grid-template-columns: repeat(4, 1fr);
   gap:2px;
   margin: 0 14px;
-  padding: 16px 0 14px;
+  padding: 10px 0 8px;
   border-bottom: 1px solid rgba(28,28,20,.08);
 }
 
@@ -142,7 +142,7 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
-  padding: 14px 60px 0 14px;
+  padding: 8px 60px 0 14px;
   flex-wrap: wrap;
 }
 
@@ -199,7 +199,7 @@ body{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  padding: 12px 14px 0;
+  padding: 6px 14px 0;
 }
 
 .filter-pill{
@@ -227,25 +227,25 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding: 18px 14px 0;
+  padding: 10px 14px 0;
 }
 
 .card-wrap{
   position:relative;
   width:100%;
-  max-width: 440px;
+  max-width: 420px;
   flex:1;
   min-height:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .card{
   position:relative;
   width:100%;
-  height: clamp(260px, 52dvh, 480px);
+  height: clamp(200px, 36dvh, 340px);
   perspective: 1400px;
   cursor: grab;
   touch-action: pan-y;
@@ -379,9 +379,9 @@ body{
   display:flex;
   gap:12px;
   width:100%;
-  max-width: 440px;
+  max-width: 420px;
   flex-shrink:0;
-  margin: 16px auto 6px;
+  margin: 10px auto 4px;
 }
 
 .ctrl-btn{
@@ -437,21 +437,29 @@ body{
 
 /* ---------- Responsive ---------- */
 @media (max-width: 420px){
-  .app-title{ font-size: 21px; }
-  .word-text{ font-size: 25px; }
+  .word-text{ font-size: 24px; }
   .stat-num{ font-size: 19px; }
 }
 
-@media (max-height: 700px){
-  .topbar{ padding: calc(var(--safe-top) + 8px) 14px 4px; }
-  .app-title{ font-size: 20px; }
-  .glass-panel{ padding-bottom: 8px; }
-  .stats-bar{ padding: 10px 0 8px; }
-  .variante-row{ padding-top: 8px; }
-  .filters-row{ padding-top: 6px; }
-  .card-area{ padding-top: 10px; }
-  .card{ height: clamp(210px, 44dvh, 480px); }
-  .controls{ margin: 10px auto 4px; }
+/* Very short screens (older iPhone SE) : squeeze a bit further */
+@media (max-height: 600px){
+  .topbar{ padding: calc(var(--safe-top) + 6px) 14px 4px; }
+  .app-title{ font-size: 19px; }
+  .card{ height: clamp(170px, 32dvh, 340px); }
+  .word-text{ font-size: 21px; }
+}
+
+/* Roomy screens (large phones, tablets, desktop) : a bit more breathing room */
+@media (min-height: 850px){
+  .topbar{ padding: calc(var(--safe-top) + 16px) 14px 10px; }
+  .app-title{ font-size: 24px; }
+  .glass-panel{ padding-bottom: 14px; }
+  .stats-bar{ padding: 16px 0 14px; }
+  .variante-row{ padding-top: 14px; }
+  .filters-row{ padding-top: 12px; }
+  .card-area{ padding-top: 20px; }
+  .card{ height: clamp(240px, 42dvh, 440px); }
+  .controls{ margin: 16px auto 6px; }
 }
 
 @media (min-width: 700px){
