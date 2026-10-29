@@ -85,19 +85,25 @@
     state.seenToday.count++;
   }
 
+  function showFront() {
+    isFlipped = false;
+    els.cardInner.style.transition = "none";
+    els.card.classList.remove("flipped");
+    void els.cardInner.offsetWidth;
+    els.cardInner.style.transition = "";
+  }
+
   function buildQueue() {
     queue = shuffle(remainingWords(state.category));
     resetCardTransform();
-    isFlipped = false;
-    els.card.classList.remove("flipped");
+    showFront();
     current = queue.length ? queue[0] : null;
     render();
   }
 
   function nextCard() {
     resetCardTransform();
-    isFlipped = false;
-    els.card.classList.remove("flipped");
+    showFront();
     current = queue.length ? queue[0] : null;
     render();
   }
@@ -184,8 +190,12 @@
     });
     els.varianteLabel.textContent = state.variante === "sud" ? "CORSU — PUMUNTICU" : "CORSU — CISMUNTICU";
     if (current) {
-      els.corsText.textContent = current[state.variante];
+      els.corsText.textContent = translationFor(current);
     }
+  }
+
+  function translationFor(word) {
+    return word[state.variante] || word.sud;
   }
 
   function renderCard() {
@@ -205,7 +215,7 @@
     els.badgeFront.textContent = badge;
     els.badgeBack.textContent = badge;
     els.frText.textContent = current.fr;
-    els.corsText.textContent = current[state.variante];
+    els.corsText.textContent = translationFor(current);
     els.varianteLabel.textContent = state.variante === "sud" ? "CORSU — PUMUNTICU" : "CORSU — CISMUNTICU";
   }
 
